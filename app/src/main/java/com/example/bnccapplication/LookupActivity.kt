@@ -15,7 +15,7 @@ class LookupActivity : AppCompatActivity() {
         btnLookupBack.setOnClickListener{
             openMainActivity()
         }
-        tvLookupContent.setText(intent.getStringExtra("extra"))
+        tvLookupContent.text = intent.getStringExtra("extra")
     }
 
     private fun openMainActivity() {
