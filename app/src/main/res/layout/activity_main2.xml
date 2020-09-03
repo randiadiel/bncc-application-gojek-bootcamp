@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:padding="30dp">
+
+    <ImageView
+        android:id="@+id/iv_main_dontPanic"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/dont_panic" />
+
+    <TextView
+        android:id="@+id/tv_main_loremTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="What is Lorem Ipsum"
+        android:textSize="30sp"
+        android:textAlignment="textStart"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/tv_main_loremContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+        android:textSize="20sp"
+        android:textAlignment="textStart"/>
+
+    <Button
+        android:id="@+id/btn_main_lorem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:text="Button" />
+
+</LinearLayout>
