@@ -6,4 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".LookupActivity">
 
+    <TextView
+        android:id="@+id/tv_lookup_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Indonesia"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="20dp"
+        android:background="#B8B9DA"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/btn_lookup_back"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/abc_vector_test"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lookup_header"
+        app:layout_constraintStart_toStartOf="@+id/tv_lookup_header"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_lookup_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_lookup_header" />
 </androidx.constraintlayout.widget.ConstraintLayout>

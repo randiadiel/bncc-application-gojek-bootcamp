@@ -7,10 +7,13 @@ import android.os.Bundle
 import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        const val extra = "Extra"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val btnLookup = findViewById<Button>(R.id.btn_lookup)
+        val btnLookup = findViewById<Button>(R.id.btn_main_lookup)
         btnLookup.setOnClickListener {
             openLookupActivity()
         }
@@ -21,7 +24,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun openLookupActivity() {
-        val intent = Intent(this,LookupActivity::class.java)
+        val intent = Intent(this,LookupActivity::class.java).apply {
+            putExtra(extra, "Message From MainActivity")
+        }
         startActivity(intent)
     }
     private fun actionDial() {
