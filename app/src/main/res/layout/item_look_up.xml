@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="16dp"
+    android:layout_margin="8dp"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_item_lookup_provinceName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="DKI Jakarta" />
+
+        <TextView
+            android:id="@+id/tv_item_lookup_confirmedCase"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#52B2D0"
+            android:textSize="15sp"
+            android:gravity="center"
+            app:layout_constraintEnd_toStartOf="@+id/tv_item_lookup_recoveredCase"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_item_lookup_recoveredCase"
+            tools:text="42156" />
+
+        <TextView
+            android:id="@+id/tv_item_lookup_recoveredCase"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#68C166"
+            android:textSize="15sp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_lookup_provinceName"
+            tools:text="356" />
+
+        <TextView
+            android:id="@+id/tv_item_lookup_deathCase"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:textAlignment="center"
+            android:background="@drawable/circle"
+            android:backgroundTint="#E76666"
+            android:textSize="15sp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_item_lookup_recoveredCase"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_item_lookup_recoveredCase"
+            app:layout_constraintTop_toTopOf="@+id/tv_item_lookup_recoveredCase"
+            tools:text="356" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

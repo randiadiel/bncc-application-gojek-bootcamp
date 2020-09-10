@@ -93,19 +93,26 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintBottom_toTopOf="@id/guideline_confirmed"/>
+
             <TextView
                 android:id="@+id/tv_main2_positive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Death"
+                android:text="Confirmed"
                 android:textColor="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/guideline_confirmed" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/guideline_confirmed"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -126,19 +133,24 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/guideline_recovered"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent" />
             <TextView
                 android:id="@+id/tv_main2_recovered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Death"
+                android:text="Recovered"
                 android:textColor="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/guideline_recovered" />
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/guideline_recovered"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -158,10 +170,9 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/guideline_death"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -171,7 +182,13 @@
                 android:textColor="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/guideline_death" />
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/guideline_death"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -189,11 +206,12 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_lookup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/all_rounded"
-            android:backgroundTint="#B8B9DA"
+            android:backgroundTint="#EEEEFF"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             tools:layout_editor_absoluteX="30dp"
             android:padding="15dp">
@@ -201,11 +219,11 @@
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="68dp"
-                android:layout_height="67dp"
+                android:layout_height="68dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@mipmap/ic_launcher" />
+                tools:src="@drawable/virus" />
 
             <TextView
                 android:id="@+id/tv_main_lookupTitle"
@@ -229,6 +247,57 @@
 
             <Button
                 android:id="@+id/btn_main_lookup"
+                android:layout_width="45dp"
+                android:layout_height="47dp"
+                android:layout_marginEnd="4dp"
+                android:background="@android:drawable/ic_media_play"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/all_rounded"
+            android:backgroundTint="#EEEEFF"
+            app:layout_constraintTop_toBottomOf="@+id/cl_lookup"
+            tools:layout_editor_absoluteX="30dp"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/iv_main_hotline"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/virus" />
+
+            <TextView
+                android:id="@+id/tv_main_hotlineTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="Hotline"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#25287A"
+                app:layout_constraintStart_toEndOf="@+id/iv_main_hotline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_main_hotlineDesc"
+                android:layout_width="185dp"
+                android:layout_height="46dp"
+                android:text="See details by province all over indonesia"
+                app:layout_constraintStart_toStartOf="@+id/tv_main_hotlineTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tv_main_hotlineTitle" />
+
+            <Button
+                android:id="@+id/btn_main_hotline"
                 android:layout_width="45dp"
                 android:layout_height="47dp"
                 android:layout_marginEnd="4dp"
