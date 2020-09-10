@@ -43,7 +43,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="24dp"
         android:text="78754"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
@@ -223,34 +223,36 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/global_map"
                 tools:src="@drawable/virus" />
 
             <TextView
                 android:id="@+id/tv_main_lookupTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="16dp"
                 android:text="Lookup"
+                android:textColor="#25287A"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:textColor="#25287A"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_main_lookupDesc"
-                android:layout_width="185dp"
-                android:layout_height="46dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:text="See details by province all over indonesia"
+                app:layout_constraintEnd_toStartOf="@+id/btn_main_lookup"
                 app:layout_constraintStart_toStartOf="@+id/tv_main_lookupTitle"
                 app:layout_constraintTop_toBottomOf="@+id/tv_main_lookupTitle" />
 
             <Button
                 android:id="@+id/btn_main_lookup"
-                android:layout_width="45dp"
-                android:layout_height="47dp"
+                android:layout_width="15dp"
+                android:layout_height="30dp"
                 android:layout_marginEnd="4dp"
-                android:background="@android:drawable/ic_media_play"
+                android:background="@drawable/soft_right_arrow"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -274,34 +276,36 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/siren"
                 tools:src="@drawable/virus" />
 
             <TextView
                 android:id="@+id/tv_main_hotlineTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="16dp"
                 android:text="Hotline"
+                android:textColor="#25287A"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:textColor="#25287A"
                 app:layout_constraintStart_toEndOf="@+id/iv_main_hotline"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_main_hotlineDesc"
-                android:layout_width="185dp"
-                android:layout_height="46dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:text="See details by province all over indonesia"
+                app:layout_constraintEnd_toStartOf="@+id/btn_main_hotline"
                 app:layout_constraintStart_toStartOf="@+id/tv_main_hotlineTitle"
                 app:layout_constraintTop_toBottomOf="@+id/tv_main_hotlineTitle" />
 
             <Button
                 android:id="@+id/btn_main_hotline"
-                android:layout_width="45dp"
-                android:layout_height="47dp"
+                android:layout_width="15dp"
+                android:layout_height="30dp"
                 android:layout_marginEnd="4dp"
-                android:background="@android:drawable/ic_media_play"
+                android:background="@drawable/soft_right_arrow"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
