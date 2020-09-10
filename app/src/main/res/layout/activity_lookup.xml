@@ -10,21 +10,21 @@
         android:id="@+id/tv_lookup_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Indonesia"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:padding="20dp"
-        android:background="#B8B9DA"
+        android:text="Indonesia"
         android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp"
+        />
 
     <Button
         android:id="@+id/btn_lookup_back"
-        android:layout_width="31dp"
-        android:layout_height="31dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginStart="16dp"
-        android:background="@drawable/abc_vector_test"
+        android:background="@drawable/back_button"
         app:layout_constraintBottom_toBottomOf="@+id/tv_lookup_header"
         app:layout_constraintStart_toStartOf="@+id/tv_lookup_header"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,38 +33,53 @@
         android:id="@+id/cv_lookup_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="28dp"
         android:backgroundTint="#F1F1F1"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="16dp"
         app:cardElevation="16dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_lookup_header">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp">
 
             <ImageView
                 android:id="@+id/iv_lookup_loup"
-                android:layout_width="30dp"
-                android:layout_height="23dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/search"/>
+                app:srcCompat="@drawable/search_button" />
 
             <EditText
                 android:id="@+id/et_lookup_search"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:autofillHints="Search"
+                android:background="@null"
+                android:inputType="text"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_lookup_loup"
                 app:layout_constraintTop_toTopOf="parent"
-                android:autofillHints="Search"
-                android:inputType="text" />
+                />
+
+            <Button
+                android:id="@+id/btn_lookup_cancel"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/cancel_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="invisible"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

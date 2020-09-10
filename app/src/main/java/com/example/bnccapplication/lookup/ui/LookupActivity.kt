@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bnccapplication.R
 import com.example.bnccapplication.lookup.LookupData
@@ -22,19 +24,33 @@ class LookupActivity : AppCompatActivity() {
         LookupData("Jawa Timur",1222,322,34),
         LookupData("Gorontalo",1222,322,34)
     )
+    private fun modifyLookupAdapter(list : MutableList<LookupData>){
+        val lookupAdapter = LookupAdapter(list)
+        rv_lookup.adapter = lookupAdapter
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lookup)
         val btnLookupBack = findViewById<Button>(R.id.btn_lookup_back)
         val etLookupSearch = findViewById<EditText>(R.id.et_lookup_search)
+        val btnLookupCancel = findViewById<Button>(R.id.btn_lookup_cancel)
         btnLookupBack.setOnClickListener{
             onBackPressed()
+        }
+        btnLookupCancel.setOnClickListener {
+            etLookupSearch.setText("")
         }
         etLookupSearch.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 filterLookupList(p0.toString())
+                if(p0?.toString().equals("")){
+                    btnLookupCancel.visibility = View.INVISIBLE
+                }
+                else{
+                    btnLookupCancel.visibility = View.VISIBLE
+                }
             }
             override fun afterTextChanged(p0: Editable?) {
             }
@@ -47,10 +63,5 @@ class LookupActivity : AppCompatActivity() {
     fun filterLookupList(query : String){
         val filteredList = mockLookupList.filter { it.provinceName.contains(query.toRegex()) }.toMutableList()
         modifyLookupAdapter(filteredList)
-    }
-
-    private fun modifyLookupAdapter(list : MutableList<LookupData>){
-        val lookupAdapter = LookupAdapter(list)
-        rv_lookup.adapter = lookupAdapter
     }
 }
