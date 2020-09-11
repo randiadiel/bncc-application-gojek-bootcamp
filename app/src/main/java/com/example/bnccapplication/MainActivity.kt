@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +40,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val btnLookup = findViewById<Button>(R.id.btn_main_lookup)
         val btnHotline = findViewById<Button>(R.id.btn_main_hotline)
+        val tvTotalCases = findViewById<TextView>(R.id.tv_main_total_cases)
+        val tvTotalConfirmed = findViewById<TextView>(R.id.tv_main_confirmed_cases)
+        val tvTotalRecovered = findViewById<TextView>(R.id.tv_main_recovered_cases)
+        val tvTotalDeath = findViewById<TextView>(R.id.tv_main_death_cases)
         val btnHotlineCancel = findViewById<Button>(R.id.btn_main_hotline_cancel)
         val hotlineAdapter = HotlineAdapter(mockHotlineList)
         rv_main_hotline.layoutManager = LinearLayoutManager(this)
@@ -47,7 +52,11 @@ class MainActivity : AppCompatActivity() {
         val request : Request = Request.Builder()
             .url("https://bncc-corona-versus.firebaseio.com/v1/hotlines.json")
             .build()
+        val mainRequest : Request = Request.Builder()
+            .url("https://api.kawalcorona.com/indonesia")
+            .build()
 
+        okHttpClient.newCall(mainRequest).enqueue(getMainCallback(tvTotalCases, tvTotalConfirmed, tvTotalRecovered, tvTotalDeath))
         okHttpClient.newCall(request).enqueue(getCallback(hotlineAdapter))
         btnLookup.setOnClickListener {
             openLookupActivity()
@@ -84,8 +93,7 @@ class MainActivity : AppCompatActivity() {
             closeBottomSheet()
         }
     }
-    private fun actionDial() {
-        val phoneNumber = "404558"
+    private fun actionDial(phoneNumber : String = "911") {
         val intent = Intent().apply{
             action = Intent.ACTION_DIAL
             data = Uri.parse("tel:$phoneNumber")
@@ -110,6 +118,38 @@ class MainActivity : AppCompatActivity() {
                 else if (slideOffset == 1f) bottomSheet.background = ContextCompat.getDrawable(applicationContext, R.drawable.rectangle)
                 else bottomSheet.background = ContextCompat.getDrawable(applicationContext, R.drawable.layout_bg)
             }
+        }
+    }
+    private fun getMainCallback(tvTotalCases: TextView, tvTotalConfirmed: TextView, tvTotalRecovered: TextView, tvTotalDeath: TextView) : Callback {
+        return object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                this@MainActivity.runOnUiThread {
+                    Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                try {
+                    val jsonString = response.body?.string()
+                    val jsonArray = JSONArray(jsonString)
+                    val totalCases = jsonArray.getJSONObject(0).getString("positif")
+                    val confirmedCases = jsonArray.getJSONObject(0).getString("dirawat")
+                    val recoveredCases = jsonArray.getJSONObject(0).getString("sembuh")
+                    val deathCases = jsonArray.getJSONObject(0).getString("meninggal")
+                    this@MainActivity.runOnUiThread() {
+                        tvTotalCases.text = totalCases
+                        tvTotalConfirmed.text = confirmedCases
+                        tvTotalRecovered.text = recoveredCases
+                        tvTotalDeath.text = deathCases
+                    }
+                } catch (e: Exception){
+                    this@MainActivity.runOnUiThread {
+                        Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+            }
+
         }
     }
     private fun getCallback(hotlineAdapter:HotlineAdapter) : Callback {

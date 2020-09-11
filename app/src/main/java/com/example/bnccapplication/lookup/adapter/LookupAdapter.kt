@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bnccapplication.R
+import com.example.bnccapplication.hotline.HotlineData
 import com.example.bnccapplication.lookup.LookupData
 
 class LookupAdapter(private val lookUpList: MutableList<LookupData>) : RecyclerView.Adapter<LookupViewHolder>() {
@@ -19,6 +20,13 @@ class LookupAdapter(private val lookUpList: MutableList<LookupData>) : RecyclerV
 
     override fun getItemCount(): Int {
         return lookUpList.size
+    }
+
+    fun updateData(newList: List<LookupData>) {
+        lookUpList.clear()
+        lookUpList.addAll(newList)
+
+        notifyDataSetChanged()
     }
 
 }
