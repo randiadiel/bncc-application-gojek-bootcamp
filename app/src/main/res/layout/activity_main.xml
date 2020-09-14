@@ -5,9 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:background="#3E419E">
@@ -40,34 +38,44 @@
             android:layout_width="169dp"
             android:layout_height="150dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_main_heading"
+            app:layout_constraintTop_toBottomOf="@id/tv_main_heading"
             app:srcCompat="@drawable/virus" />
 
-        <TextView
-            android:id="@+id/tv_main_total_cases"
-            android:layout_width="wrap_content"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:text="78754"
-            android:textColor="#FFFFFF"
-            android:textSize="50sp"
-            android:textStyle="bold"
+            android:layout_marginEnd="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/iv_main_virus"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_main_heading" />
+            app:layout_constraintStart_toEndOf="@id/iv_main_virus"
+            app:layout_constraintTop_toTopOf="@id/iv_main_virus">
 
-        <TextView
-            android:id="@+id/tv_main_case_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total Cases"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_main_total_cases"
-            app:layout_constraintStart_toStartOf="@+id/tv_main_total_cases"
-            app:layout_constraintTop_toBottomOf="@+id/tv_main_total_cases" />
+
+            <TextView
+                android:id="@+id/tv_main_total_cases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000,000"
+                android:textColor="#FFFFFF"
+                android:textSize="45sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tv_main_case_description"/>
+
+            <TextView
+                android:id="@+id/tv_main_case_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Cases"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_main_total_cases"
+                app:layout_constraintStart_toStartOf="@+id/tv_main_total_cases"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_main_bottom"
@@ -96,7 +104,7 @@
                     android:id="@+id/tv_main_confirmed_cases"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="36977"
+                    android:text="0"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -108,6 +116,7 @@
                     android:id="@+id/tv_main_positive"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:text="Confirmed"
                     android:textColor="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -136,17 +145,19 @@
                     android:id="@+id/tv_main_recovered_cases"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="45401"
+                    android:text="0"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@id/guideline_recovered"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
+
                 <TextView
                     android:id="@+id/tv_main_recovered"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:text="Recovered"
                     android:textColor="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -173,7 +184,7 @@
                     android:id="@+id/tv_main_death_cases"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4143"
+                    android:text="0"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -185,6 +196,7 @@
                     android:id="@+id/tv_main_death"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:text="Death"
                     android:textColor="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -225,8 +237,8 @@
 
                 <ImageView
                     android:id="@+id/iv_main_lookup"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -240,7 +252,7 @@
                     android:layout_marginStart="16dp"
                     android:text="Lookup"
                     android:textColor="#25287A"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/iv_main_lookup"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -279,8 +291,8 @@
 
                 <ImageView
                     android:id="@+id/iv_main_hotline"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -294,7 +306,7 @@
                     android:layout_marginStart="16dp"
                     android:text="Hotline"
                     android:textColor="#25287A"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/iv_main_hotline"
                     app:layout_constraintTop_toTopOf="parent" />

@@ -54,7 +54,8 @@ class LookupActivity : AppCompatActivity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                filterLookupList(p0.toString(),lookupAdapter)
+//                filterLookupList(p0.toString(),lookupAdapter)
+                lookupAdapter.filterData(p0.toString())
                 if(p0?.toString().equals("")){
                     btnLookupCancel.visibility = View.INVISIBLE
                 }
@@ -68,10 +69,7 @@ class LookupActivity : AppCompatActivity() {
         })
     }
 
-    fun filterLookupList(query : String, lookupAdapter: LookupAdapter){
-        val filteredList = mockLookupList.filter { it.provinceName.contains(query.toRegex()) }.toMutableList()
-        modifyLookupAdapter(lookupAdapter, filteredList)
-    }
+
 
     fun getCallback(lookupAdapter: LookupAdapter) : Callback{
         return object : Callback {

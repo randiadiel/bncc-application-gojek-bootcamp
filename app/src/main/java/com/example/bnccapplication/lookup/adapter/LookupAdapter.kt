@@ -7,26 +7,36 @@ import com.example.bnccapplication.R
 import com.example.bnccapplication.hotline.HotlineData
 import com.example.bnccapplication.lookup.LookupData
 
-class LookupAdapter(private val lookUpList: MutableList<LookupData>) : RecyclerView.Adapter<LookupViewHolder>() {
+class LookupAdapter(private val displayList: MutableList<LookupData>) : RecyclerView.Adapter<LookupViewHolder>() {
+    private val lookUpList : MutableList<LookupData> = mutableListOf()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LookupViewHolder {
+        lookUpList.clear()
+        lookUpList.addAll(displayList)
         return LookupViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_look_up, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: LookupViewHolder, position: Int) {
-        holder.bind(lookUpList[position])
+        holder.bind(displayList[position])
     }
 
     override fun getItemCount(): Int {
-        return lookUpList.size
+        return displayList.size
     }
 
     fun updateData(newList: List<LookupData>) {
-        lookUpList.clear()
-        lookUpList.addAll(newList)
+        displayList.clear()
+        displayList.addAll(newList)
 
         notifyDataSetChanged()
     }
 
+    fun filterData(query: String){
+        displayList.clear()
+        displayList.addAll(lookUpList.filter { it.provinceName.toLowerCase().contains(query.toLowerCase().toRegex()) }.toMutableList())
+
+        notifyDataSetChanged()
+    }
 }
